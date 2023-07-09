@@ -1,0 +1,23 @@
+class Solution {
+    double tiwari(double x, int n){
+          if(n==1) return x;
+        if(n==0) return 1;
+        double p=tiwari(x,n/2);
+           if(n%2==1){
+               return  x*p*p;
+           }
+           else{
+             return p*p ;
+           }
+        
+    }
+public:
+    double myPow(double x, int n) {
+        if (n == INT_MAX) return (x == 1) ? 1 : (x == -1) ? -1 : 0;
+        if (n == INT_MIN) return (x == 1 || x == -1) ? 1 : 0;
+     double z= tiwari(x,abs(n));
+     
+     if(n<0) return 1.00/z;
+     else return z;
+    }
+};
